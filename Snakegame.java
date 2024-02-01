@@ -20,8 +20,10 @@ class Gamepanel extends JPanel implements ActionListener {
     Timer timer;
     Random random;
     ImageIcon img;
-    Image appl;
+    Image appl1 = Toolkit.getDefaultToolkit().createImage("worm.png");
+    Image appl2 = Toolkit.getDefaultToolkit().createImage("ladybug.png");
     ImageIcon snk;
+    Image bgi = Toolkit.getDefaultToolkit().createImage("./backg.png");
     //JButton butt;
 
     Gamepanel(){
@@ -46,26 +48,33 @@ class Gamepanel extends JPanel implements ActionListener {
     }
     public  void paintComponent(Graphics g){
         super.paintComponent(g);
-        img = new ImageIcon("backg.png");
-        // appl = Toolkit.getDefaultToolkit().createImage("btlf.png");
-        g.drawImage(img.getImage(),0,0,null );
+        //img = new ImageIcon("backg.png");
+        //appl = Toolkit.getDefaultToolkit().createImage("btlf.png");
+        g.drawImage(bgi,0,0,null );
         draw(g);
 
     }
+  
     public void draw(Graphics g){
         if (running){
             for(int i = 0;i<SCREEN_HEIGHT/UNIT_SIZE;i++){
                 // g.drawLine(i*UNIT_SIZE,0,i*UNIT_SIZE, SCREEN_HEIGHT);
                 //  g.drawLine(0,i*UNIT_SIZE,SCREEN_WIDTH, i*UNIT_SIZE);
             }
-            g.setColor(Color.red);
-            g.fillOval(appleX,appleY,UNIT_SIZE,UNIT_SIZE);
-            //g.drawImage(appl, appleX, appleY, null);
+            g.drawImage(appl2,appleX,appleY, null );
+            //g.fillOval(appleX,appleY,UNIT_SIZE,UNIT_SIZE);
+           // g.drawImage(appl, appleX, appleY, null);
+           imageUpdate(appl2, 0, appleX,appleY, UNIT_SIZE, UNIT_SIZE);
+           
+           
             for (int i = 0; i < bodyParts; i++) {
                 if (i == 0) {
-                    g.setColor(Color.orange);
-                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
-                } else {
+                    
+                    imageUpdate(appl2, 0, x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                   g.setColor(Color.orange);
+                   g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                } 
+                else {
                     g.setColor(Color.yellow);
                     //g.setColor(new Color(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
