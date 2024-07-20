@@ -164,17 +164,12 @@ class Gamepanel extends JPanel implements ActionListener {
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Game Over", (SCREEN_WIDTH - metrics2.stringWidth("Game Over")) / 2, SCREEN_HEIGHT / 2);
-        /*butt = new JButton();
-
-        butt.setBounds(200, 200, 80, 20 );
-        butt.setText("RESTART");
-        butt.setHorizontalTextPosition(JButton.CENTER);
-        butt.setVerticalAlignment(JButton.BOTTOM);
-        butt.setFont(new Font("Comic Sans", Font.BOLD, 15));
-        butt.setBorder(BorderFactory.createEtchedBorder());
-        butt.addActionListener(this);
-        this.add(butt);*/
-
+        
+        //PlayAgain
+        g.setColor(Color.black);
+        g.setFont(new Font("Ink Free", Font.BOLD, 30));
+        FontMetrics metrics3 = getFontMetrics(g.getFont());
+        g.drawString("Reload to play again...", (SCREEN_WIDTH - metrics3.stringWidth("Reload to play again...")) / 2, 4*(SCREEN_HEIGHT / 5));
 
 
     }
